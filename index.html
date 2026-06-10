@@ -24,18 +24,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
-    <noscript>
-      <style>
-        .hero,
-        .plane-main {
-          opacity: 1;
-        }
-      </style>
-    </noscript>
   </head>
   <body>
-    <div class="surface">
-      <header class="status-bar" aria-label="Operating status">
+    <div class="page">
+      <header class="status-bar">
         <div class="status-bar-left">
           <span class="status-item">
             <span class="status-dot" aria-hidden="true"></span>
@@ -45,80 +37,66 @@
           <span class="status-item">builder</span>
           <span class="status-sep" aria-hidden="true">/</span>
           <span class="status-item">
-            <time id="status-time" datetime="">—</time>
+            <time id="status-time" datetime=""></time>
           </span>
         </div>
-        <a class="status-contact link-quiet" href="mailto:hello@nagaraju.co"
+        <a class="link-quiet" href="mailto:hello@nagaraju.co"
           >hello@nagaraju.co</a
         >
       </header>
 
-      <main class="plane">
-        <section class="hero" aria-labelledby="hero-name">
-          <div class="hero-copy">
-            <h1 class="hero-name" id="hero-name">Nagaraju Kshathriya</h1>
-            <p class="hero-tagline">
-              Building systems that move information, decisions, and documents.
-            </p>
-          </div>
+      <main>
+        <section class="hero">
+          <h1>Nagaraju Kshathriya</h1>
+          <p class="tagline">
+            Building systems that move information, decisions, and documents.
+          </p>
         </section>
 
-        <div class="plane-main">
-        <div class="grid">
-          <section
-            class="panel panel-focus"
-            id="focus"
-            aria-labelledby="focus-label"
-          >
-            <h2 class="panel-label" id="focus-label">Focus</h2>
+        <div class="panels">
+          <div class="grid">
+            <section class="panel panel-focus" aria-labelledby="focus-label">
+              <h2 class="panel-label" id="focus-label">Focus</h2>
+              <ul class="focus-list">
+                <li class="focus-item">
+                  <span class="focus-indicator" aria-hidden="true"></span>
+                  <div>
+                    <h3>Integration Systems</h3>
+                    <p class="mono">APIs · Events · Data · LLMs</p>
+                  </div>
+                </li>
+                <li class="focus-item">
+                  <span class="focus-indicator" aria-hidden="true"></span>
+                  <div>
+                    <h3>Platform Engineering</h3>
+                    <p class="mono">Cloud · Reliability · DevOps</p>
+                  </div>
+                </li>
+                <li class="focus-item">
+                  <span class="focus-indicator" aria-hidden="true"></span>
+                  <div>
+                    <h3>AI Enablement</h3>
+                    <p class="mono">Agents · Evaluation · Decision Support</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
 
-            <ul class="focus-list">
-              <li class="focus-item" data-focus="integration">
-                <span class="focus-indicator" aria-hidden="true"></span>
-                <div class="focus-body">
-                  <h3 class="focus-name">Integration Systems</h3>
-                  <p class="focus-tags">APIs · Events · Data · LLMs</p>
-                </div>
-              </li>
-              <li class="focus-item" data-focus="platform">
-                <span class="focus-indicator" aria-hidden="true"></span>
-                <div class="focus-body">
-                  <h3 class="focus-name">Platform Engineering</h3>
-                  <p class="focus-tags">Cloud · Reliability · DevOps</p>
-                </div>
-              </li>
-              <li class="focus-item" data-focus="ai">
-                <span class="focus-indicator" aria-hidden="true"></span>
-                <div class="focus-body">
-                  <h3 class="focus-name">AI Enablement</h3>
-                  <p class="focus-tags">
-                    Agents · Evaluation · Decision Support
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
+            <section class="panel panel-build" aria-labelledby="build-label">
+              <div class="build-header">
+                <h2 class="panel-label" id="build-label">Current Build</h2>
+                <span class="build-status">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  live
+                </span>
+              </div>
 
-          <section
-            class="panel panel-build is-primary"
-            id="build"
-            aria-labelledby="build-label"
-          >
-            <div class="panel-build-header">
-              <h2 class="panel-label" id="build-label">Current Build</h2>
-              <span class="build-live">
-                <span class="live-dot" aria-hidden="true"></span>
-                status · live
-              </span>
-            </div>
-
-            <article class="build-card">
               <h3 class="build-name">
                 <a href="https://papertunnel.com" rel="noopener noreferrer"
                   >Papertunnel</a
                 >
               </h3>
-              <p class="build-role">Document delivery system</p>
+              <p class="build-role mono">Document delivery system</p>
               <p class="build-description">
                 Fax and physical mail with delivery tracking — for workflows
                 that still require official transmission.
@@ -126,12 +104,8 @@
 
               <dl class="build-meta">
                 <div class="meta-row">
-                  <dt>status</dt>
-                  <dd><span class="meta-value is-active">live</span></dd>
-                </div>
-                <div class="meta-row">
                   <dt>build</dt>
-                  <dd><span class="meta-value is-active">active</span></dd>
+                  <dd>active</dd>
                 </div>
                 <div class="meta-row">
                   <dt>focus</dt>
@@ -149,27 +123,24 @@
                   </dd>
                 </div>
               </dl>
-            </article>
-          </section>
-        </div>
+            </section>
+          </div>
 
-        <section class="panel panel-footer" id="experience" aria-label="Experience and record">
-          <div class="footer-block">
-            <h2 class="panel-label">Experience</h2>
+          <section class="panel panel-experience" aria-labelledby="exp-label">
+            <h2 class="panel-label" id="exp-label">Experience</h2>
             <p class="experience-line">
               <span class="experience-years">9 years</span>
-              <span class="experience-detail"
+              <span class="mono experience-detail"
                 >systems integration · platform engineering · product
                 builds</span
               >
             </p>
-          </div>
-        </section>
+          </section>
         </div>
       </main>
 
-      <footer class="plane-footer">
-        <p>© <span id="year"></span> Nagaraju Kshathriya</p>
+      <footer class="site-footer">
+        <p class="mono">© <span id="year"></span> Nagaraju Kshathriya</p>
       </footer>
     </div>
 

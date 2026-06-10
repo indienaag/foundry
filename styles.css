@@ -1,18 +1,14 @@
 :root {
-  --surface: #ebebe9;
+  --bg: #ebebe9;
   --panel: #f5f5f3;
-  --ink: #0f0f0e;
+  --text: #0f0f0e;
   --muted: #5e5e5a;
-  --muted-soft: #6a6a66;
-  --signal: #3d5a5a;
-  --signal-bright: #4a7373;
+  --label: #6a6a66;
+  --accent: #3d5a5a;
   --border: #d6d6d2;
-  --border-strong: #bcbcb8;
   --live: #2d6a4f;
   --max-width: 68rem;
-  --panel-pad: 1.75rem;
-  --radius: 2px;
-  --ease: 150ms ease;
+  --pad: 1.75rem;
 }
 
 *,
@@ -22,48 +18,24 @@
 }
 
 html {
-  font-size: 100%;
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
-a {
-  color: var(--signal);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  transition: color var(--ease), opacity var(--ease),
-    text-decoration-color var(--ease);
+.mono {
+  font-family: "IBM Plex Mono", monospace;
 }
 
-a:hover {
-  color: var(--signal-bright);
-}
-
-.link-quiet {
-  color: var(--ink);
-  text-decoration: none;
-  opacity: 0.88;
-}
-
-.link-quiet:hover {
-  color: var(--ink);
-  opacity: 1;
-  text-decoration: underline;
-  text-decoration-color: var(--border-strong);
-}
-
-.surface {
+.page {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.5rem 1.5rem 3rem;
@@ -72,31 +44,19 @@ a:hover {
   flex-direction: column;
 }
 
-/* ── Entrance ── */
-
-.hero,
-.plane-main {
-  opacity: 0;
+.link-quiet {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.88;
+  transition: opacity 150ms ease;
 }
 
-body.is-entered .hero {
-  animation: fade-in 260ms ease forwards;
+.link-quiet:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--border);
 }
-
-body.is-entered .plane-main {
-  animation: fade-in 280ms ease 90ms forwards;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* ── Status bar ── */
 
 .status-bar {
   display: flex;
@@ -123,15 +83,14 @@ body.is-entered .plane-main {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: var(--muted-soft);
+  color: var(--label);
 }
 
 .status-item:first-child {
-  color: var(--ink);
+  color: var(--text);
 }
 
-.status-dot,
-.live-dot {
+.status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -139,41 +98,15 @@ body.is-entered .plane-main {
   flex-shrink: 0;
 }
 
-.status-dot {
-  animation: pulse 2.4s ease-in-out infinite;
-}
-
-.live-dot {
-  animation: pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.55;
-    transform: scale(0.85);
-  }
-}
-
 .status-sep {
-  color: var(--border-strong);
+  color: var(--border);
 }
-
-.status-contact {
-  white-space: nowrap;
-}
-
-/* ── Hero ── */
 
 .hero {
   margin-bottom: 2rem;
 }
 
-.hero-name {
+.hero h1 {
   font-size: clamp(1.75rem, 4vw, 2.125rem);
   font-weight: 600;
   line-height: 1.15;
@@ -181,7 +114,7 @@ body.is-entered .plane-main {
   margin: 0 0 0.85rem;
 }
 
-.hero-tagline {
+.tagline {
   font-size: 1.125rem;
   line-height: 1.5;
   color: var(--muted);
@@ -189,22 +122,18 @@ body.is-entered .plane-main {
   max-width: 36rem;
 }
 
-/* ── Grid ── */
-
 .grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 1px;
 }
 
 .panel {
   background: var(--panel);
-  padding: var(--panel-pad);
+  padding: var(--pad);
 }
 
 .panel-label {
@@ -213,11 +142,9 @@ body.is-entered .plane-main {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--muted-soft);
+  color: var(--label);
   margin: 0 0 1.5rem;
 }
-
-/* ── Focus panel ── */
 
 .focus-list {
   list-style: none;
@@ -230,7 +157,6 @@ body.is-entered .plane-main {
   gap: 0.85rem;
   padding: 1rem 0;
   border-top: 1px solid var(--border);
-  cursor: default;
 }
 
 .focus-item:first-child {
@@ -246,19 +172,17 @@ body.is-entered .plane-main {
   width: 3px;
   margin-top: 0.45rem;
   background: var(--border);
-  border-radius: 1px;
   flex-shrink: 0;
   align-self: stretch;
   transition: width 150ms ease, background 150ms ease;
 }
 
-.focus-item:hover .focus-indicator,
-.focus-item.is-active .focus-indicator {
+.focus-item:hover .focus-indicator {
   width: 5px;
-  background: var(--signal);
+  background: var(--accent);
 }
 
-.focus-name {
+.focus-item h3 {
   font-size: 0.9375rem;
   font-weight: 600;
   margin: 0 0 0.3rem;
@@ -267,27 +191,22 @@ body.is-entered .plane-main {
   transition: color 150ms ease;
 }
 
-.focus-item:hover .focus-name,
-.focus-item.is-active .focus-name {
-  color: var(--ink);
+.focus-item:hover h3 {
+  color: var(--text);
 }
 
-.focus-tags {
-  font-family: "IBM Plex Mono", monospace;
+.focus-item .mono {
   font-size: 0.6875rem;
-  color: var(--muted-soft);
+  color: var(--label);
   margin: 0;
-  letter-spacing: 0.02em;
   line-height: 1.5;
 }
 
-/* ── Build panel ── */
-
-.panel-build.is-primary {
-  background: color-mix(in srgb, var(--signal) 3%, var(--panel));
+.panel-build {
+  background: color-mix(in srgb, var(--accent) 3%, var(--panel));
 }
 
-.panel-build-header {
+.build-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -295,11 +214,11 @@ body.is-entered .plane-main {
   margin-bottom: 1.5rem;
 }
 
-.panel-build-header .panel-label {
+.build-header .panel-label {
   margin-bottom: 0;
 }
 
-.build-live {
+.build-status {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -320,22 +239,20 @@ body.is-entered .plane-main {
 }
 
 .build-name a {
-  color: var(--ink);
+  color: var(--text);
   text-decoration: none;
-  transition: opacity var(--ease);
+  transition: opacity 150ms ease;
 }
 
 .build-name a:hover {
-  color: var(--ink);
-  opacity: 0.72;
+  opacity: 0.7;
 }
 
 .build-role {
-  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--muted-soft);
+  color: var(--label);
   margin: 0 0 1.25rem;
 }
 
@@ -363,39 +280,19 @@ body.is-entered .plane-main {
 }
 
 .meta-row dt {
-  color: var(--muted-soft);
+  color: var(--label);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.625rem;
-  margin: 0;
 }
 
 .meta-row dd {
   margin: 0;
-  color: var(--ink);
 }
 
-.meta-value.is-active {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.meta-value.is-active::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--live);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* ── Footer panel ── */
-
-.panel-footer {
+.panel-experience {
   border: 1px solid var(--border);
   border-top: none;
-  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .experience-line {
@@ -413,32 +310,25 @@ body.is-entered .plane-main {
 }
 
 .experience-detail {
-  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
-  color: var(--muted-soft);
-  letter-spacing: 0.02em;
+  color: var(--label);
 }
 
-/* ── Page footer ── */
-
-.plane-footer {
+.site-footer {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
 }
 
-.plane-footer p {
-  font-family: "IBM Plex Mono", monospace;
+.site-footer p {
   font-size: 0.625rem;
-  color: var(--muted-soft);
+  color: var(--label);
   margin: 0;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-/* ── Mobile ── */
-
 @media (max-width: 720px) {
-  .surface {
+  .page {
     padding: 1.25rem 1rem 2.5rem;
   }
 
@@ -453,7 +343,7 @@ body.is-entered .plane-main {
     grid-template-columns: 1fr;
   }
 
-  .panel-build.is-primary {
+  .panel-build {
     order: -1;
   }
 
@@ -466,31 +356,15 @@ body.is-entered .plane-main {
     gap: 0.75rem;
   }
 
-  .hero-tagline {
+  .tagline {
     font-size: 1.0625rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .status-dot,
-  .live-dot,
-  .meta-value.is-active::before {
-    animation: none;
-  }
-
-  .hero,
-  .plane-main {
-    opacity: 1;
-  }
-
-  body.is-entered .hero,
-  body.is-entered .plane-main {
-    animation: none;
-  }
-
   .focus-indicator,
-  .focus-name,
-  a,
+  .focus-item h3,
+  .link-quiet,
   .build-name a {
     transition: none;
   }

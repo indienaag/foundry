@@ -1,6 +1,6 @@
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+FROM caddy:2-alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html main.js styles.css favicon.svg /usr/share/nginx/html/
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY index.html styles.css main.js favicon.svg /srv/
 
 EXPOSE 8080
