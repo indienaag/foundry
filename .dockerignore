@@ -1,0 +1,42 @@
+# Dependencies and build output
+node_modules
+.next
+dist
+out
+build
+
+# Version control
+.git
+.gitignore
+
+# Environment and secrets
+.env
+.env.*
+
+# Logs and local caches
+*.log
+logs
+.cache
+.turbo
+.swc
+
+# Editor and OS
+.DS_Store
+.idea
+.vscode
+*.swp
+
+# Screenshots and temp files
+screenshots
+temp
+temp.json
+*.tmp
+
+# Docs and CI (not needed in image)
+docs
+.github
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
