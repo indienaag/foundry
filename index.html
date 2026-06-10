@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nagaraju Kshathriya</title>
+    <meta
+      name="description"
+      content="Building systems that move information, decisions, and documents."
+    />
+    <meta property="og:title" content="Nagaraju Kshathriya" />
+    <meta
+      property="og:description"
+      content="Building systems that move information, decisions, and documents."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nagaraju.co" />
+    <link rel="canonical" href="https://nagaraju.co" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <noscript>
+      <style>
+        .hero,
+        .plane-main {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div class="surface">
+      <header class="status-bar" aria-label="Operating status">
+        <div class="status-bar-left">
+          <span class="status-item">
+            <span class="status-dot" aria-hidden="true"></span>
+            operating
+          </span>
+          <span class="status-sep" aria-hidden="true">/</span>
+          <span class="status-item">builder</span>
+          <span class="status-sep" aria-hidden="true">/</span>
+          <span class="status-item">
+            <time id="status-time" datetime="">—</time>
+          </span>
+        </div>
+        <a class="status-contact link-quiet" href="mailto:hello@nagaraju.co"
+          >hello@nagaraju.co</a
+        >
+      </header>
+
+      <main class="plane">
+        <section class="hero" aria-labelledby="hero-name">
+          <div class="hero-copy">
+            <h1 class="hero-name" id="hero-name">Nagaraju Kshathriya</h1>
+            <p class="hero-tagline">
+              Building systems that move information, decisions, and documents.
+            </p>
+          </div>
+        </section>
+
+        <div class="plane-main">
+        <div class="grid">
+          <section
+            class="panel panel-focus"
+            id="focus"
+            aria-labelledby="focus-label"
+          >
+            <h2 class="panel-label" id="focus-label">Focus</h2>
+
+            <ul class="focus-list">
+              <li class="focus-item" data-focus="integration">
+                <span class="focus-indicator" aria-hidden="true"></span>
+                <div class="focus-body">
+                  <h3 class="focus-name">Integration Systems</h3>
+                  <p class="focus-tags">APIs · Events · Data · LLMs</p>
+                </div>
+              </li>
+              <li class="focus-item" data-focus="platform">
+                <span class="focus-indicator" aria-hidden="true"></span>
+                <div class="focus-body">
+                  <h3 class="focus-name">Platform Engineering</h3>
+                  <p class="focus-tags">Cloud · Reliability · DevOps</p>
+                </div>
+              </li>
+              <li class="focus-item" data-focus="ai">
+                <span class="focus-indicator" aria-hidden="true"></span>
+                <div class="focus-body">
+                  <h3 class="focus-name">AI Enablement</h3>
+                  <p class="focus-tags">
+                    Agents · Evaluation · Decision Support
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section
+            class="panel panel-build is-primary"
+            id="build"
+            aria-labelledby="build-label"
+          >
+            <div class="panel-build-header">
+              <h2 class="panel-label" id="build-label">Current Build</h2>
+              <span class="build-live">
+                <span class="live-dot" aria-hidden="true"></span>
+                status · live
+              </span>
+            </div>
+
+            <article class="build-card">
+              <h3 class="build-name">
+                <a href="https://papertunnel.com" rel="noopener noreferrer"
+                  >Papertunnel</a
+                >
+              </h3>
+              <p class="build-role">Document delivery system</p>
+              <p class="build-description">
+                Fax and physical mail with delivery tracking — for workflows
+                that still require official transmission.
+              </p>
+
+              <dl class="build-meta">
+                <div class="meta-row">
+                  <dt>status</dt>
+                  <dd><span class="meta-value is-active">live</span></dd>
+                </div>
+                <div class="meta-row">
+                  <dt>build</dt>
+                  <dd><span class="meta-value is-active">active</span></dd>
+                </div>
+                <div class="meta-row">
+                  <dt>focus</dt>
+                  <dd>customer discovery</dd>
+                </div>
+                <div class="meta-row">
+                  <dt>surface</dt>
+                  <dd>
+                    <a
+                      class="link-quiet"
+                      href="https://papertunnel.com"
+                      rel="noopener noreferrer"
+                      >papertunnel.com</a
+                    >
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          </section>
+        </div>
+
+        <section class="panel panel-footer" id="experience" aria-label="Experience and record">
+          <div class="footer-block">
+            <h2 class="panel-label">Experience</h2>
+            <p class="experience-line">
+              <span class="experience-years">9 years</span>
+              <span class="experience-detail"
+                >systems integration · platform engineering · product
+                builds</span
+              >
+            </p>
+          </div>
+        </section>
+        </div>
+      </main>
+
+      <footer class="plane-footer">
+        <p>© <span id="year"></span> Nagaraju Kshathriya</p>
+      </footer>
+    </div>
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>
