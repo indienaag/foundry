@@ -1,6 +1,6 @@
 FROM caddy:2-alpine
 
 COPY Caddyfile /etc/caddy/Caddyfile
-COPY index.html styles.css main.js favicon.svg /srv/
+COPY index.html styles.css app.js loader.js favicon.svg /srv/
 
 EXPOSE 8080
